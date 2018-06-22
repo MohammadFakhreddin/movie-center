@@ -1,0 +1,23 @@
+<v-container >
+    <v-layout row>
+        <v-flex xs9>
+            <change-profile-info-tab v-show="(selectedTab=='edit-info')"></change-profile-info-tab>
+        </v-flex>        
+        <v-flex xs3>
+            <v-layout column class="mt-2">
+                <right-tab-button text="ویرایش اطلاعات کاربری" :isSelected="(selectedTab=='edit-info')"
+                @click.native="onRightTabsClicked('edit-info')">
+                </right-tab-button>
+                <right-tab-button text="تغییر رمز عبور" :isSelected="(selectedTab=='edit-password')"
+                @click.native="onRightTabsClicked('edit-password')">
+                </right-tab-button>
+                <right-tab-button text="انتقال اشتراک از سایت قدیم" :isSelected="(selectedTab=='transfer-old-profile')"
+                @click.native="onRightTabsClicked('transfer-old-profile')">
+                </right-tab-button>
+                <right-tab-button text="دعوت دوستان" :isSelected="(selectedTab=='invite-friends')"
+                @click.native="onRightTabsClicked('invite-friends')">
+                </right-tab-button>
+            </v-layout>
+        </v-flex>
+    </v-layout>
+</v-container>

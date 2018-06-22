@@ -1,0 +1,118 @@
+<div>
+<v-container fluid class="container">
+    <v-layout row justify-space-between class="darkBackground">
+        <v-flex xs11  class="text-xs-right mt-1">
+            <span class="yekanFont largeText whiteText">
+                دانلود فیلم
+            </span>
+            <span id="movieName" class="yekanFont largeText whiteText">
+                {{movieName}}
+            </span>        
+        </v-flex>
+        <v-flex xs1 class="rightFloat"></v-flex>
+    </v-layout>
+    <v-layout  row justify-space-between  class="darkBackground">
+        <v-flex xs11 class="col-xs-11 text-xs-right ">
+            <div v-for="tag in movieTags" class=" btn lightBackground normalFont  mediumText movieTag">{{tag}}</div>
+        </v-flex>
+        <v-flex xs1 class="rightFloat"></v-flex>
+    </v-layout>
+    <v-layout row justify-space-between class="movieBackground" :style="{'background-image':movieWallpaper}">
+        <v-flex xs1></v-flex>
+        <v-flex xs9 class="rightFloat ma-1">
+            <v-layout row justify-space-between>
+                <v-flex xs12 class="text-xs-right pa-1 ma-1">
+                    <span id="scorePanelBorder" class="text-xs-right pa-2 ma-1 roundBlackBorder">
+                        <span id="scorePanel" class=" normalFont mediumText whiteText text-xs-center">امتیاز {{movieRating}} از 10  </span>        
+                        <i class=" fa fa-star yellowText mediumText pa-1"></i>
+                    </span>
+                </v-flex>
+            </v-layout>
+            <v-layout row justify-space-between>
+                <v-flex class="col-xs-12 text-xs-right pa-1">
+                    <span class="roundBlackBorder pa-1">
+                        <span class="normalFont whiteText mediumText rightFloat smallMargin bold">سال ساخت فیلم</span>    
+                        <span id="builtYear" class="englishFont whiteText mediumText rightFloat smallMargin">{{movieYear}}</span>
+                        <span class="normalFont whiteText mediumText rightFloat smallMargin bold">مدت زمان فیلم</span>    
+                        <span id="moviePeriod" class="normalFont whiteText mediumText rightFloat smallMargin">{{movieDuration}}</span>
+                        <span class="normalFont whiteText mediumText rightFloat smallMargin">دقیقه</span>    
+                        <span  class="normalFont whiteText mediumText rightFloat smallMargin bold">محصول کشور</span>    
+                        <span id="country" class="normalFont whiteText mediumText rightFloat smallMargin">{{movieCountry}}</span>  
+                    </span>  
+                </v-flex>
+            </v-layout>
+            <!-- <v-layout row justify-space-between>
+                <v-flex class="divider"></v-flex>
+            </v-layout> -->
+            <v-layout row justify-space-between>
+                <v-flex id="movieDescription" class="smallMargin normalFont mediumText whiteText text-xs-right">
+                    <span class="roundBlackBorder normalFont mediumText whiteText pa-1">
+                        {{movieDescription}}
+                    </span>
+                </v-flex>
+            </v-layout>   
+            <!-- <v-layout row justify-space-between>
+                <v-flex class="divider"></v-flex>
+            </v-layout>   -->
+            <v-layout row justify-space-between>
+                <v-flex class="text-xs-right pa-1">
+                    <span class="roundBlackBorder pa-1">
+                        <span id="director" class="smallMargin  englishFont mediumText whiteText">
+                            {{movieDirector}} 
+                        </span>
+                        <span  class="smallMargin  normalFont mediumText whiteText bold">
+                                کارگردان
+                        </span>   
+                    </span> 
+                </v-flex>
+            </v-layout>
+            <v-layout  row justify-space-between>
+                <v-flex class="text-xs-right pa-1">
+                    <span class="roundBlackBorder pa-1">
+                        <span v-for="item in movieWriter" id="writer" class="smallMargin  englishFont mediumText whiteText">
+                            {{item}} 
+                        </span>
+                        <span  class="smallMargin  normalFont mediumText whiteText bold">
+                                نویسنده
+                        </span>  
+                    </span>
+                </v-flex>  
+            </v-layout> 
+            <v-layout  row justify-space-between>
+                <v-flex class="text-xs-right pa-1">
+                    <span class="roundBlackBorder pa-1">
+                        <span v-for="item in movieStars" id="stars" class="smallMargin rightFloat englishFont mediumText whiteText">
+                            {{item}} 
+                        </span>        
+                        <span  class="smallMargin rightFloat normalFont mediumText whiteText bold">
+                            ستارگان
+                        </span>
+                    </span>
+                </v-flex>
+            </v-layout>          
+        </v-flex>
+        <v-flex xs2 class="rightFloat">
+                <img id="movieImage" class="rightFloat darkBackground" :src="movieImage" 
+                width="140px" height="210px">
+        </v-flex>
+        <v-flex xs1 class="rightFloat"></v-flex>
+    </v-layout>
+</v-container>
+<v-container >
+    <v-layout row class="mt-2" >
+        <pages-button class="text-xs-center" :isSelected="galleryPageIsSelected" text="گالری" @click.native="onPageSelected('gallery')"></pages-button>
+        <pages-button class="text-xs-center" :isSelected="awardsPageIsSelected" text="جوایز" @click.native="onPageSelected('awards')"></pages-button>
+        <pages-button class="text-xs-center" :isSelected="actorsPageIsSelected" text="عوامل فیلم" @click.native="onPageSelected('actors')"></pages-button>
+        <pages-button class="text-xs-center" :isSelected="reviewPageIsSelected" text="نقد و بررسی" @click.native="onPageSelected('review')"></pages-button>
+        <pages-button class="text-xs-center" :isSelected="userFeedbackIsSelected" text="نظر کاربران" @click.native="onPageSelected('feedback')"></pages-button>
+        <pages-button class="text-xs-center" :isSelected="subtitlePageIsSelected" text="زیرنویس" @click.native="onPageSelected('subtitle')"></pages-button>
+        <pages-button class="text-xs-center" :isSelected="downloadPageIsSelected" text="دانلود" @click.native="onPageSelected('download')"></pages-button>
+    </v-layout>
+    <v-layout row class="text-xs-center mt-10">
+        <download-scene v-show="downloadPageIsSelected"></download-scene>
+        <feedback-scene v-show="userFeedbackIsSelected"></feedback-scene>
+        <subtitle-scene v-show="subtitlePageIsSelected"></subtitle-scene>
+    </v-layout>
+</v-container>
+<down-toolbar></down-toolbar>
+</div>

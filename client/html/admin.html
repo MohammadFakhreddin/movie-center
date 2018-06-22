@@ -1,0 +1,16 @@
+<v-container>
+    <v-layout row class="mt-2" justify-center align-center>
+        <pages-button class="text-xs-center" :isSelected="(selectedPage=='remove-movie')" text="حذف فیلم" @click.native="onPageSelected('remove-movie')"></pages-button>
+        <pages-button class="text-xs-center" :isSelected="(selectedPage=='new-movie')" text="افزودن فیلم جدید" @click.native="onPageSelected('new-movie')"></pages-button>
+        <pages-button class="text-xs-center" :isSelected="(selectedPage=='movie-list')" text="لیست فیلم ها" @click.native="onPageSelected('movie-list')"></pages-button>
+        <pages-button class="text-xs-center" :isSelected="(selectedPage=='login')" text="ورود" @click.native="onPageSelected('login')"></pages-button>
+    </v-layout>
+    <remove-movie-page v-show="(selectedPage=='remove-movie')">
+    </remove-movie-page>
+    <login-page v-show="(selectedPage=='login')">
+    </login-page>
+    <add-new-movie-page v-show="(selectedPage=='new-movie')">
+    </add-new-movie-page>
+    <see-movie-list-page v-show="(selectedPage=='movie-list')">
+    </see-movie-list-page>
+</v-container>

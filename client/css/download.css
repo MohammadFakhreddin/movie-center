@@ -1,0 +1,67 @@
+.toolbarBlueButton {
+  border: 2px dodgerblue;
+  padding: 10px;
+  color: dodgerblue;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.toolbarBlueButton:hover {
+  background-color: dodgerblue; /* Green */
+  color: white;
+}
+
+.movieTag{
+  margin: 5px
+}
+
+#movieImage{
+  margin-top: -0px;
+  padding: 10px;
+}
+
+.topZindex{
+  z-index: 9;
+  position: relative
+}
+
+.bottonZIndex{
+  z-index: 10;
+  position: relative
+}
+
+#instructionBackgroundImage{
+  background-image: url("~\\assets\\mipmap\\titanfal.jpg");
+}
+
+#scorePanelBorder{
+  border:1px solid white;
+  width:auto;
+  border-radius: 4px;
+  padding: 1px;
+  margin: 5px
+}
+
+#imdbPanel{
+  border-radius: 2px;
+  background-color: orange;
+  margin:6px
+}
+
+#subScenePanel{
+  border-radius: 2px;
+  background-color: dodgerblue;
+  margin:6px
+}
+
+.divider{
+  width: 40em;
+  height: 1px;
+  background-color: white;
+}
+
+.movieBackground{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

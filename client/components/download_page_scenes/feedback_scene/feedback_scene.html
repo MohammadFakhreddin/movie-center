@@ -1,0 +1,158 @@
+<v-container fluid>
+        <v-card v-show="userIsValid"> 
+            <v-card-text>
+                <v-layout row justify-center>
+                    <v-flex align-content-center xs6>
+                        <v-layout xs12 row align-center>
+                            <v-flex>
+                                <v-layout row wrap align-center style="position: relative;top: -1em;margin-top: -1em" >
+                                    <v-text-field
+                                        label="نظر خود را وارد کنید"
+                                        v-model="userCommentValue"
+                                        textarea
+                                        light
+                                        class="normalFont mt-4"
+                                        color="grey darken-1"
+                                        id="userCommentInput"
+                                    ></v-text-field>
+                                </v-layout>
+                                <v-layout row wrap align-right 
+                                style="position: relative;top: -5em;left:1em">
+                                    <span class="ma-1">
+                                        <label for="noComment" class="normalFont smallText darkText">نظری ندارم</label>
+                                        <input type="radio" id="noComment" name="likeDislikeRadioBtn"
+                                         v-model="userSuggestionState" value="0">
+                                    </span>
+                                    <span  class="ma-1">
+                                        <label for="dislike" class="normalFont smallText darkText">دوست نداشتم</label>
+                                        <input type="radio" id="dislike" name="likeDislikeRadioBtn"
+                                         v-model="userSuggestionState" value="-1">
+                                    </span>
+                                    <span  class="ma-1"> 
+                                        <label for="like" class="normalFont smallText darkText">دوست داشتم</label>
+                                        <input type="radio" id="like" name="likeDislikeRadioBtn"
+                                          v-model="userSuggestionState" value="1">
+                                    </span>
+                                </v-layout>
+                            </v-flex>
+                        </v-layout>
+                        <v-layout row align-center style="position:relative;top: -4em;margin-bottom: -4em" >
+                            <v-btn dark  color="green darken-2" class="normalFont bold mediumText" 
+                            @click.native="onSendCommentBtnClicked()">
+                                    ثبت دیدگاه
+                            </v-btn>
+                        </v-layout>
+                    </v-flex>
+                    <v-flex align-content-center xs2>
+                        <v-container fill-height>
+                            <v-layout row wrap align-center>
+                                <v-flex>
+                                    <profile-button id="profileButton" style="width:5em;height:5em"></profile-button>
+                                </v-flex>
+                            </v-layout>
+                        </v-container>
+                    </v-flex>
+                    <v-flex xs5 ma-1>
+                        <v-container fill-height>
+                            <v-layout row align-center>
+                                <v-flex>
+                                    <v-layout row xs12>
+                                        <v-flex xs7  offset-xs1> 
+                                            <v-slider v-model="directorScore.value" max=10 min=0  class="pa-1" style="width: 100%"></v-slider>
+                                        </v-flex>
+                                        <v-flex xs1 >
+                                            <span class="normalFont mediumText pa-1 blueText bold">کارگردانی</span>    
+                                            <span class="normalFont mediumText pa-1 blueText bold">{{directorScore.value}}</span>
+                                            <span class="normalFont mediumText pa-1 blueText bold">از</span>
+                                            <span class="normalFont mediumText pa-1 blueText bold">10</span>
+                                        </v-flex>
+                                    </v-layout> 
+                                    <v-layout row>
+                                        <v-flex xs7 offset-xs1>
+                                            <v-slider v-model="actorsScore.value" max=10 min=0 class="pa-1"></v-slider>
+                                        </v-flex>
+                                        <v-flex xs2>
+                                            <span class="normalFont mediumText pa-1 blueText bold">بازیگری</span>    
+                                            <span class="normalFont mediumText pa-1 blueText bold">{{actorsScore.value}}</span>
+                                            <span class="normalFont mediumText pa-1 blueText bold">از</span>
+                                            <span class="normalFont mediumText pa-1 blueText bold">10</span>
+                                        </v-flex>
+                                    </v-layout>
+                                    <v-layout row>
+                                        <v-flex xs7  offset-xs1> 
+                                            <v-slider v-model="storyScore.value" max=10 min=0  class="pa-1"></v-slider>
+                                        </v-flex>
+                                        <v-flex xs2>
+                                            <span class="normalFont mediumText pa-1 blueText bold">فیلمنامه</span>    
+                                            <span class="normalFont mediumText pa-1 blueText bold">{{storyScore.value}}</span>
+                                            <span class="normalFont mediumText pa-1 blueText bold">از</span>
+                                            <span class="normalFont mediumText pa-1 blueText bold">10</span>
+                                        </v-flex>
+                                    </v-layout>
+                                </v-flex>
+                            </v-layout>
+                        </v-container>
+                    </v-flex>
+                </v-layout>
+            </v-card-text>
+        </v-card>
+        <v-layout row wrap>
+            <div class="parentDiv alignCenter" id="downloadScoreParent">
+                <div class="inlineDiv downloadScoreToolbar alignCenter">
+                    <div class="parentDiv alignCenter">
+                        <label class="normalFont smallText lightText">
+                            شما هم بر اساس ارزش دانلود به فیلم رای بدهید
+                        </label>
+                    </div>
+                    <div class="parentDiv alignCenter">
+                        <div class="normalFont mediumText blueButton button"
+                            id="scoreButton">
+                            امتیاز دهید
+                        </div>
+                    </div>
+                </div>
+                <div class="inlineDiv downloadScoreToolbar" id="downloadScoreMidToolbarParent">
+                    <label class="normalFont blueText mediumText downloadScoreMidToolbar hidden">
+                        و
+                    </label>
+                    <label class="normalFont blueText mediumText downloadScoreMidToolbar">
+                        {{positiveViewsCount}}
+                    </label>
+                    <label class="normalFont blueText mediumText downloadScoreMidToolbar">
+                        نفر از
+                    </label>
+                    <label class="normalFont blueText mediumText downloadScoreMidToolbar">
+                        {{numOfVoters}}
+                    </label>
+                    <label class="normalFont blueText mediumText downloadScoreMidToolbar">
+                        نفر تماشای این فیلم را پیشنهاد می دهند
+                    </label>
+                </div>
+                <div class="inlineDiv downloadScoreToolbar">
+                    <div class="parentDiv alignRight">
+                        <label class="normalFont mediumText greenText">ارزش دانلود {{Math.round(totalScore)}} از 10</label>
+                    </div>
+                    <v-progress-linear v-model="totalScoreProgressValue"  color="success" ></v-progress-linear>
+                    <div class="parentDiv alignRight">
+                        <label class="normalFont mediumText lightText" id="progressHint">
+                            نتایج آرا کاربران براساس کارگردانی + بازیگری + فیلمنامه
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </v-layout>
+        <existing-comment v-for="comment in commentList"  :directorScore="comment.directorRate"
+        :artistsScore="comment.actorRate" :storyScore="comment.storyRate" :likeState="comment.userSuggestionState"
+        :commentLikeCount="comment.likeCount" :commentDislikeCount="comment.dislikeCount" 
+        :commentText="comment.text" :commentDate="comment.createdAt" :authorName="comment.authorName"
+        :authorId="comment.authorId">
+        </existing-comment>
+        <!-- <existing-comment  directorScore="4" artistsScore="5" storyScore="9"
+            likeState="-1" commentLikeCount="1" commentDislikeCount="4" 
+            commentText="خیلی بد بود" commentDate="1396/06/19">
+        </existing-comment> -->
+        <v-layout justify-end class="mr-4 mt-4">
+            <v-pagination length='1' v-model="currentPage">
+            </v-pagination>
+        </v-layout>
+</v-container>

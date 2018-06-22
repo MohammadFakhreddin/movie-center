@@ -1,0 +1,53 @@
+#profileButton{
+    align-content: center
+}
+
+#downloadScoreParent {
+    margin-top: 40px;
+}
+
+#downloadScoreProgressParent {
+    width: 100%;
+    margin-top: 4px;
+    margin-bottom: 8px;
+}
+
+#downloadScoreProgress {
+    width: 80%;
+    height: 5px;
+}
+
+.downloadScoreToolbar {
+    width: 260px;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+
+.downloadScoreMidToolbar {
+    position: relative;
+    top: -20px;
+    left: 0;
+    width: 90px;
+}
+  
+#downloadScoreMidToolbarParent {
+width: 160px;
+}
+  
+  #progressHint {
+    opacity: 0.7;
+    font-size: 14px;
+  }
+
+  
+#scoreButton {
+    position: relative;
+    top: 0px;
+    margin-top: 16px;
+    left: 35%;
+    color: white;
+    width: 30%;
+    height: 30px;
+  }
+  

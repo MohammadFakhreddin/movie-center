@@ -1,0 +1,97 @@
+<!-- <v-container fluid> -->
+<v-tabs v-model="activeTab" centered grow>
+  <v-layout row justify-center align-center >
+    <v-flex xs2 class="text-xs-center">
+      <v-btn icon v-on:click.native="onExitBtnClicked()" light>
+        <v-icon light>close</v-icon>
+      </v-btn>
+    </v-flex >   
+    <v-flex xs10 class="mr-1 ml-1">
+      <v-tabs-bar  centered >
+        <v-tabs-item ripple href="#register-tab" class="normalFont bold smallText lightText elevation-0">
+          عضویت
+          <v-icon light color="grey darken-2" class="pa-1 mt-1">fa-user</v-icon>
+        </v-tabs-item>
+        <v-tabs-item ripple href="#login-tab" class="normalFont bold smallText lightText elevation-0">
+          ورود
+          <v-icon light color="grey darken-2" class="pa-1 mt-1">fa-sign-in</v-icon>
+        </v-tabs-item>
+        <v-tabs-slider v-model="activeTab" color="grey darken-2"></v-tabs-slider>
+      </v-tabs-bar>
+    </v-flex>
+  </v-layout>
+  <v-layout column fluid>
+      <v-alert v-show="(successMessage!='')" outline color="success"
+      icon="check_circle" value="true" class="normalFont bold  text-xs-right">
+       {{successMessage}}
+     </v-alert>
+     <v-alert v-show="(errorMessage!='')" outline color="error" 
+     icon="warning" value="true" class="normalFont bold text-xs-right">
+       {{errorMessage}}
+     </v-alert>
+  </v-layout>
+  <v-tabs-items>
+    <v-tabs-content id="login-tab">
+      <v-container fluid>
+        <v-layout row justify-center align-center>
+            <input type="text" name="fname"
+                  class="normalFont darkText alignCenter loginFields"
+                  placeholder="ایمیل" v-model="loginEmailInput">
+            <label class="normalFont smallText darkText bold text-xs-center ma-1">
+                شناسه ورود
+            </label>
+        </v-layout>
+        <v-layout row justify-center align-center>
+          <input type="password" name="fname" v-model="loginPasswordInput"
+                  class="normalFont darkText alignCenter loginFields"
+                  placeholder="رمز عبور" id="passwordInput">
+          <label class="normalFont smallText darkText bold text-xs-center ma-1">
+              رمز عبور
+          </label>
+        </v-layout>
+        <v-layout row justify-center align-center mt-1>
+          <v-flex xs11>
+            <v-btn small dark class="yekanFont smallText whiteText" 
+            color="green darken-1" @click.native="onLoginBtnClicked()">
+                ورود
+            </v-btn>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-tabs-content>
+    <v-tabs-content id="register-tab">
+      <v-container fluid>
+              <v-layout row justify-center align-center mt-3>
+                  <input type="email" v-model = "registerEmailInput"
+                         class="normalFont darkText alignCenter loginFields"
+                         placeholder="ایمیل">
+                  <label class="normalFont smallText bold darkText loginFields alignCenter ">
+                      ایمیل
+                  </label>
+              </v-layout>
+              <v-layout row justify-center align-center mt-3>
+                  <input type="password" v-model = "registerPasswordInput"
+                         class="normalFont darkText alignCenter loginFields"
+                         placeholder="رمز عبور">
+                  <label class="normalFont smallText bold darkText loginFields alignCenter">
+                      رمز عبور
+                  </label>
+              </v-layout>
+              <v-layout  row justify-center align-center mt-3>
+                  <input type="password" v-model = "registerRePasswordInput"
+                         class="normalFont darkText alignCenter loginFields"
+                         placeholder="تکرار رمز عبور">
+                  <label class="normalFont smallText bold darkText loginFields alignCenter">
+                      تکرار رمز عبور
+                  </label>
+              </v-layout>
+              <v-layout row mt-1 small mt-3>
+                  <v-flex xs11>
+                      <v-btn dark class="yekanFont smallText" color="blue accent-4"
+                      @click.native="onRegisterBtnClicked">عضویت</v-btn>
+                  </v-flex>
+              </v-layout>
+      </v-container>
+    </v-tabs-content>
+  </v-tabs-items>
+</v-tabs>

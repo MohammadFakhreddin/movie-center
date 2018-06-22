@@ -1,0 +1,15 @@
+<v-container class="backgroundImage" :style="{width:width,height:height,'background-image':backgroundImage}">
+    <v-layout row wrap align-center justify-end :style="{width:width,height:height}" >
+            <v-flex class="text-xs-right">
+            <div>
+                <span class="yekanFont white--text bold largeText  text-xs-right ma-1 pa-1">{{title}}</span>
+            </div>
+            <div>
+                <span class="normalFont white--text  largeText text-xs-right ma-1 pa-1">{{body}}</span>
+            </div>
+            <div>
+                <span class="yekanFont  text-xs-center ma-4 bold downloadBtn pa-1" v-on:click="onDownloadBtnClicked()">{{btnText}}</span>
+            </div>
+        </v-flex>
+    </v-layout>
+</v-container>

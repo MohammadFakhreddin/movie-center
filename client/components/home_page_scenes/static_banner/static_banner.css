@@ -1,0 +1,30 @@
+.backgroundImage{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+span {
+    display:  inline-block;
+    -moz-border-radius: 10px; /* or 50% */
+    border-radius: 10px; /* or 50% */
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.downloadBtn{
+    border: solid rgba(0,0,0,0.8) 1px;
+    border-radius:6px;
+    color: black;
+    background-color: rgba(255, 255, 255,0.5);
+    align-content: center;
+    user-select: none
+}
+
+.downloadBtn:hover{
+    border: solid rgba(0,0,0,1) 1px;
+    border-radius:6px;
+    color: white;
+    background-color: rgba(0, 0, 0, 1);
+    align-content: center;
+    user-select: none
+}

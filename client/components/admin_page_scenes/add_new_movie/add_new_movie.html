@@ -1,0 +1,140 @@
+<v-container>
+  <v-layout>
+      <section-title text="افزودن فیلم جدید" divWidth="140px"></section-title>
+  </v-layout>
+  <v-layout justify-end>
+  <span class="englishFont mediumText mr-4 lightText">title</span>
+  </v-layout>  
+  <v-layout row wrap>
+  <v-flex class="text-xs-right mr-4 mt-2">
+      <my-input inputMode="text" placeHolder="" width="18em" v-model="titleValue">
+      </my-input>
+  </v-flex>
+  </v-layout>
+  <v-layout justify-end>
+  <span class="englishFont mediumText mr-4 lightText">originalTitle</span>
+  </v-layout>  
+  <v-layout row wrap>
+  <v-flex class="text-xs-right mr-4 mt-2">
+      <my-input inputMode="text" placeHolder="" width="18em" v-model="originalTitleValue">
+      </my-input>
+  </v-flex>
+  </v-layout>
+  <v-layout justify-end>
+  <span class="englishFont mediumText mr-4 lightText">rate</span>
+  </v-layout>  
+  <v-layout row wrap>
+  <v-flex class="text-xs-right mr-4 mt-2">
+      <my-input inputMode="number" placeHolder="" width="18em" v-model="rateValue">
+      </my-input>
+  </v-flex>
+  </v-layout>
+  <v-layout justify-end>
+  <span class="englishFont mediumText mr-4 lightText">year</span>
+  </v-layout>  
+  <v-layout row wrap>
+  <v-flex class="text-xs-right mr-4 mt-2">
+      <my-input inputMode="number" placeHolder="" width="18em" v-model="yearValue">
+      </my-input>
+  </v-flex>
+  </v-layout>
+  <v-layout justify-end>
+  <span class="englishFont mediumText mr-4 lightText">length</span>
+  </v-layout>  
+  <v-layout row wrap>
+  <v-flex class="text-xs-right mr-4 mt-2">
+      <my-input inputMode="number" placeHolder="" width="18em" v-model="lengthValue">
+      </my-input>
+  </v-flex>
+  </v-layout>
+  <v-layout justify-end>
+  <span class="englishFont mediumText mr-4 lightText">country</span>
+  </v-layout>  
+  <v-layout row wrap>
+  <v-flex class="text-xs-right mr-4 mt-2">
+      <my-input inputMode="text" placeHolder="" width="18em" v-model="countryValue">
+      </my-input>
+  </v-flex>
+  </v-layout>  
+  <v-layout justify-end>
+  <span class="englishFont mediumText mr-4 lightText">description</span>
+  </v-layout>  
+  <v-layout row wrap>
+  <v-flex class="text-xs-right mr-4 mt-2">
+      <my-input inputMode="text" placeHolder="" width="18em" v-model="descriptionValue">
+      </my-input>
+  </v-flex>
+  </v-layout>
+  <v-layout justify-end>
+  <span class="englishFont mediumText mr-4 lightText">director</span>
+  </v-layout>  
+  <v-layout row wrap>
+  <v-flex class="text-xs-right mr-4 mt-2">
+      <my-input inputMode="text" placeHolder="" width="18em" v-model="directorValue">
+      </my-input>
+  </v-flex>
+  </v-layout>
+  <v-layout justify-end>
+  <span class="englishFont mediumText mr-4 lightText">writers</span>
+  </v-layout>  
+  <v-layout row wrap>
+  <v-flex class="text-xs-right mr-4 mt-2">
+      <my-input inputMode="text" placeHolder="" width="18em" v-model="writersValue">
+      </my-input>
+  </v-flex>
+  </v-layout>     
+  <v-layout justify-end>
+  <span class="englishFont mediumText mr-4 lightText">actors</span>
+  </v-layout>  
+  <v-layout row wrap>
+  <v-flex class="text-xs-right mr-4 mt-2">
+      <my-input inputMode="text" placeHolder="" width="18em" v-model="actorsValue">
+      </my-input>
+  </v-flex>
+  </v-layout>
+  <v-layout justify-end>
+  <span class="englishFont mediumText mr-4 lightText">tags</span>
+  </v-layout>  
+  <v-layout row wrap>
+  <v-flex class="text-xs-right mr-4 mt-2">
+      <my-input inputMode="text" placeHolder="" width="18em" v-model="tags">
+      </my-input>
+  </v-flex>
+  </v-layout>     
+  <v-layout justify-end >
+    <v-btn color="green darken-1" class="mr-4 mt-4 normalFont bold" dark @click.native="onAddMovieClicked()">
+        افزودن
+    </v-btn>
+  </v-layout>
+  <v-layout>
+      <section-title text=" افزودن عکس" divWidth="140px"></section-title>
+  </v-layout>
+  <v-layout justify-end>
+  <span class="englishFont mediumText mr-4 lightText">movieId</span>
+  </v-layout>  
+  <v-layout row wrap>
+  <v-flex class="text-xs-right mr-4 mt-2">
+      <my-input inputMode="text" placeHolder="" width="18em"
+       v-model="movieId">
+      </my-input>
+  </v-flex>
+  </v-layout>         
+  <v-layout justify-end>
+    <span class="englishFont mediumText mr-4 lightText">Poster</span>
+  </v-layout>  
+  <input type="file" name="file" id="file" @change="onPosterFileChanged($event)">
+  <v-layout justify-end >
+  <v-btn color="green darken-1" class="mr-4 mt-4 englishFont " dark @click.native="onAddPosterClicked()">
+      Upload poster
+  </v-btn>
+  </v-layout>
+  <v-layout justify-end>
+    <span class="englishFont mediumText mr-4 lightText">Wallpaper</span>
+  </v-layout>  
+  <input type="file" name="file" id="file" @change="onWallpaperFileChanged($event)">
+  <v-layout justify-end >
+    <v-btn color="green darken-1" class="mr-4 mt-4 englishFont " dark @click.native="onAddWallpaperClicked()">
+        Upload wallpaper
+    </v-btn>
+  </v-layout>
+</v-container>

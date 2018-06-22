@@ -1,0 +1,25 @@
+label.loginFields {
+  width: 40%;
+  margin-left: 16px;
+}
+
+input.loginFields {
+  width: 60%;
+  border-radius: 3px;
+  background-color: rgba(244, 244, 244, 1);
+  border: 1px solid rgba(170, 170, 170, 0.5);;
+}
+
+#passwordLabel {
+  position: relative;
+  left: +7px;
+  margin-top: 10px;
+  top: 0px;
+}
+
+#passwordInput {
+  position: relative;
+  left: -7px;
+  margin-top: 10px;
+  top: 0px;
+}

@@ -1,0 +1,111 @@
+#!/usr/bin/env node
+'use strict';
+/**
+ * Module dependencies.
+ */
+
+const app = require('../app')
+const debug = require('debug')('server:server');
+const http = require('http');
+const config = require('./../config');
+const read = require('fs');
+const logger = require('./../utils/logger');
+const mongoConnector = require('./../utils/mongodb_connetion_handler');
+const cluster = require('cluster');
+/** 
+ * Setting is dev value
+ * **/
+config.setEnv(process.env.NODE_ENV || 'dev');
+
+
+if(cluster.isWorker){
+  let server = null
+
+  const normalizePort = function (val) {
+    let port = parseInt(val, 10);
+
+    if (isNaN(port)) {
+      // named pipe
+      return val;
+    }
+
+    if (port >= 0) {
+      // port number
+      return port;
+    }
+
+    return false;
+  }
+
+  const onError = function (error) {
+    if (error.syscall !== 'listen') {
+      throw error;
+    }
+
+    var bind = typeof port === 'string'
+      ? 'Pipe ' + port
+      : 'Port ' + port;
+
+    // handle specific listen errors with friendly messages
+    switch (error.code) {
+      case 'EACCES':
+        console.error(bind + ' requires elevated privileges');
+        process.exit(1);
+        break;
+      case 'EADDRINUSE':
+        console.error(bind + ' is already in use');
+        process.exit(1);
+        break;
+      default:
+        throw error;
+    }
+  }
+
+  const onListening = function() {
+    var addr = server.address();
+    var bind = typeof addr === 'string'
+      ? 'pipe ' + addr
+      : 'port ' + addr.port;
+    debug('Listening on ' + bind);
+  }
+
+  let port = normalizePort(process.env.PORT || config.port);
+  app.set('port', port);
+  mongoConnector.connect(function(db){
+    if(db!==null){
+      server = http.createServer(app);
+      server.listen(port);
+      server.on('error', onError);
+      server.on('listening', onListening);    
+      logger.log(__filename,"Server is running on "+port)
+    }else{
+      logger.log(__filename,"Creating server failed")
+    }
+  })
+  
+}else{
+
+  let httpWorker = cluster.fork();
+  
+  cluster.on('online', function (worker) {
+      logger.log(__filename, "Worker " + worker.process.pid + " is online\n");
+  });
+
+  cluster.on('exit', function (worker) {
+      logger.log(__filename, "Worker " + worker.process.pid + " has stopped working\n");
+      if (!config.is_dev) {
+          cluster.fork();
+      }
+  });
+
+}
+
+process.on('uncaughtException', function (exception) {
+  if (config.is_dev === true) {
+      throw exception;
+  }else{
+    let contents = Date.now().toString() + "\n" +
+    exception.stack.toString();
+    logger.writeError(__filename,content)
+  }
+});

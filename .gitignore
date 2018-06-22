@@ -1,0 +1,15 @@
+# dependencies
+client/node_modules
+
+# logs
+client/npm-debug.log
+
+# Nuxt build
+client/.nuxt
+
+# Nuxt generate
+client/dist
+
+server/node_modules
+
+server/public

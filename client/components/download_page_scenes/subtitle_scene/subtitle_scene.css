@@ -1,0 +1,86 @@
+
+#questionButton {
+    position: relative;
+    top: -10px;
+    margin-right: 5px;
+    left: 0px;
+}
+
+.filterIcon {
+    color: rgba(170, 170, 170, 1);;
+}
+
+.filterTag {
+    width: 40px;
+    margin: 5px;
+    position: relative;
+    left: 15px;
+}
+  
+.filterTagIcon {
+    position: relative;
+    top: 2px;
+    left: -16px;
+}
+  
+.filterText {
+    position: relative;
+    top: 0px;
+    left: 12px;
+}
+
+  
+#filterLanguage {
+    position: relative;
+    top: 3px;
+    left: -12px;
+}
+  
+#resolutionFilterTag {
+    position: relative;
+    top: 2px;
+    left: -7px;
+}
+
+.filterButton {
+    margin-top: 30px;
+    border-radius: 5px;
+    width: 135px;
+    height: 29px;
+    border: 1px solid rgba(170, 170, 170, 0.5);
+    opacity: 0.7;
+  }
+  
+  
+#innerFilterLanguages {
+    width: 75px;
+    margin: 2px;
+    border-radius: 5px;
+    border: 1px solid #797979;
+    position: relative;
+    top: 2px;
+    left: 10px;;
+}
+
+.filterViewButton {
+    position: relative;
+    top: -10px;
+    left: 0px;
+    border-radius: 3px;
+    padding: 4px;
+    border: 1px solid rgba(170, 170, 170, 0.5);
+}
+  
+#proSuggestSelectorParent {
+    position: relative;
+    top: 0px;
+    left: -20em;
+}
+  
+.proSuggestedRadioButton {
+    position: relative;
+    top: 0.2em;
+    left: 0px;
+    margin-right: 1em;
+}
+  

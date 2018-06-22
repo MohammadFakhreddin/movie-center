@@ -1,0 +1,15 @@
+<v-container>
+  <v-layout>
+      <section-title text="مشاهده ی لیست فیلم ها" divWidth="140px"></section-title>
+  </v-layout>
+  <v-layout justify-center>
+    <v-flex xs10 offset-xs1 class="englishFont mediumText mr-4 lightText">
+      {{movieList}}
+    </v-flex>
+  </v-layout> 
+  <v-layout justify-end >
+    <v-btn color="green darken-1" class="mr-4 mt-4 normalFont bold" dark @click.native="onRefreshBtnClicked()">
+        تلاش دوباره
+    </v-btn>
+  </v-layout>     
+</v-container>

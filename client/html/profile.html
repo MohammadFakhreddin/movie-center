@@ -1,0 +1,12 @@
+<v-container > 
+    <v-layout row wrap>
+        <tab-button class="text-xs-center" :isSelected="(selectedPage=='setting')" text="تنظیمات" @click.native="onPageSelected('setting')"></tab-button>
+        <tab-button class="text-xs-center" :isSelected="(selectedPage=='shop')" text="خرید" @click.native="onPageSelected('shop')"></tab-button>
+        <tab-button class="text-xs-center" :isSelected="(selectedPage=='share')" text="اشتراک" @click.native="onPageSelected('share')"></tab-button>
+        <tab-button class="text-xs-center" :isSelected="(selectedPage=='download')" text="سبد دانلود" @click.native="onPageSelected('download')"></tab-button>
+        <tab-button class="text-xs-center" :isSelected="(selectedPage=='favorite')" text="فیلم های مورد علاقه " @click.native="onPageSelected('favorite')"></tab-button>
+        <tab-button class="text-xs-center" :isSelected="(selectedPage=='ticket')" text="تیکت" @click.native="onPageSelected('ticket')"></tab-button>
+    </v-layout>
+        <setting-scene v-show="(selectedPage=='setting')"></setting-scene>
+    </v-layout>
+</v-container>

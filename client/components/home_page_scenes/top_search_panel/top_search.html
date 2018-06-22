@@ -1,0 +1,41 @@
+<v-container :style="{'background-image': backgroundUrl}" class="background" justify-center fill-height >
+    <v-layout column flex justify-center align-center >
+    <v-layout justify-center align-end  class="mb-2"  style="width:100%;">
+        <span class="yekanFont largeText white--text pa-2 bold">دانلود فیلم،سریال،انیمیشن،مستند</span>
+    </v-layout>
+    <v-layout flex justify-end align-center style="width:100%;">
+        <v-flex xs3 >
+        </v-flex>
+        <v-flex xs6>
+            <my-input 
+            width="90%"
+            height="2.7em" 
+            v-model="searchValue"
+            placeHolder="جستجوی فیلم،سریال،کارگردان" 
+            textColor="#323232"></my-input>
+        </v-flex>
+        <v-flex xs3 class="text-xs-left">
+            <v-btn dark small fab color="green accent-4">
+                <v-icon medium class="mb-2">fa-search</v-icon>
+            </v-btn>
+            <v-btn style="opacity:0.7" dark small fab color="deep-purple darken-3">
+                <v-icon medium class="mb-2">fa-search-plus</v-icon>
+            </v-btn>
+        </v-flex>
+    </v-layout>
+    <v-layout flex justify-start align-start style="width:100%;">
+        <v-flex xs2>
+        </v-flex>
+        <v-flex xs1></v-flex>
+        <v-flex xs6 class="text-xs-left ml-3">
+            <v-btn color="yellow darken-2 normalFont bold mediumText" 
+            dark style="width:10em" @click.native="onSearchBtnClicked()">
+                جستجو کنید 
+            </v-btn>        
+        </v-flex>
+        <v-flex xs3>
+
+        </v-flex>
+    </v-layout>
+    </v-layout>
+</v-container>

@@ -1,0 +1,12 @@
+span {
+  display:  inline-block;
+  -moz-border-radius: 10px; /* or 50% */
+  border-radius: 10px; /* or 50% */
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.background{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

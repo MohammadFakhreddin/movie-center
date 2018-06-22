@@ -1,0 +1,19 @@
+<v-container>
+<v-layout>
+    <section-title text="حذف فیلم" divWidth="140px"></section-title>
+</v-layout>
+<v-layout justify-end>
+  <span class="englishFont mediumText mr-4 lightText">movieId</span>
+</v-layout>  
+<v-layout row wrap>
+  <v-flex class="text-xs-right mr-4 mt-2">
+      <my-input inputMode="text" placeHolder="" width="18em" v-model="movieId">
+      </my-input>
+  </v-flex>
+</v-layout>
+<v-layout justify-end >
+  <v-btn color="green darken-1" class="mr-4 mt-4 normalFont bold" dark @click.native="onRemoveMovieClicked()">
+      حذف 
+  </v-btn>
+</v-layout>
+</v-container>
